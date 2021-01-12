@@ -1,11 +1,3 @@
-import React, {useEffect, useState} from 'react';
-import {Grid, GridColumn, GridRow, Header, Icon} from 'semantic-ui-react';
-
-const lat = process.env.REACT_APP_LAT;
-const lon = process.env.REACT_APP_LON;
-const apiKey = process.env.REACT_APP_API_KEY;
-const units = process.env.REACT_APP_UNITS;
-
 export interface Forecast {
 	lat: number;
 	lon: number;
@@ -94,44 +86,4 @@ export interface AlertsEntity {
 	start: number;
 	end: number;
 	description: string;
-}
-
-
-export function Weather() {
-	const [forecast, setForecast] = useState<Forecast>();
-
-	console.log(lat);
-
-	useEffect(() => {
-		if(lat && lon && apiKey) {
-			fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`).then(response => response.json()).then(data => {
-				setForecast(data);
-			})
-		}
-	}, [lat, lon, apiKey])
-
-	console.log(forecast);
-
-	return (
-		<Grid padded>
-			{forecast?.daily?.map(day => {
-				return (
-					<GridRow>
-						<GridColumn>
-							{new Date(day.dt*1000).toLocaleString('en-us',  {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-						</GridColumn>
-						<GridColumn>
-							<Header as='h2'>
-								<Icon name='settings' />
-								<Header.Content>
-									{day.temp.max}
-									<Header.Subheader>{ day.weather ? day.weather[0].description : ''}</Header.Subheader>
-								</Header.Content>
-							</Header>
-						</GridColumn>
-					</GridRow>
-				);
-			})}
-		</Grid>
-	)
 }
