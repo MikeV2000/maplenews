@@ -1,4 +1,4 @@
-export interface Forecast {
+export interface ForecastType {
 	lat: number;
 	lon: number;
 	timezone: string;
@@ -9,7 +9,7 @@ export interface Forecast {
 	daily?: (DailyEntity)[] | null;
 	alerts?: (AlertsEntity)[] | null;
 }
-export interface Current {
+interface Current {
 	dt: number;
 	sunrise: number;
 	sunset: number;
@@ -25,13 +25,13 @@ export interface Current {
 	wind_deg: number;
 	weather?: (WeatherEntity)[] | null;
 }
-export interface WeatherEntity {
+interface WeatherEntity {
 	id: number;
 	main: string;
 	description: string;
 	icon: string;
 }
-export interface HourlyEntity {
+interface HourlyEntity {
 	dt: number;
 	temp: number;
 	feels_like: number;
@@ -46,11 +46,11 @@ export interface HourlyEntity {
 	weather?: (WeatherEntity)[] | null;
 	pop: number;
 }
-export interface MinutelyEntity {
+interface MinutelyEntity {
 	dt: number;
 	precipitation: number;
 }
-export interface DailyEntity {
+interface DailyEntity {
 	dt: number;
 	sunrise: number;
 	sunset: number;
@@ -66,7 +66,7 @@ export interface DailyEntity {
 	pop: number;
 	uvi: number;
 }
-export interface Temp {
+interface Temp {
 	day: number;
 	min: number;
 	max: number;
@@ -74,13 +74,13 @@ export interface Temp {
 	eve: number;
 	morn: number;
 }
-export interface FeelsLike {
+interface FeelsLike {
 	day: number;
 	night: number;
 	eve: number;
 	morn: number;
 }
-export interface AlertsEntity {
+interface AlertsEntity {
 	sender_name: string;
 	event: string;
 	start: number;

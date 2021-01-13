@@ -1,7 +1,7 @@
 export const environment = {
-	lat: process.env.REACT_APP_LAT,
-	lon: process.env.REACT_APP_LON,
-	location: process.env.REACT_APP_LOCATION,
-	apiKey: process.env.REACT_APP_API_KEY,
-	units: process.env.REACT_APP_UNITS,
+	lat: process.env.REACT_APP_LAT || '49.895138',
+	lon: process.env.REACT_APP_LON || '97.138374',
+	location: process.env.REACT_APP_LOCATION || 'Winnipeg, Canada',
+	apiKey: process.env.REACT_APP_API_KEY || '',
+	units: process.env.REACT_APP_UNITS || 'metric',
 }

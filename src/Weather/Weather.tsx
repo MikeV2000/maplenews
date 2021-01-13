@@ -1,19 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {Header, Image, Table, TableBody, TableCell, TableRow} from 'semantic-ui-react';
-import {Forecast} from './Types';
+import {ForecastType} from '../Types';
 import {environment} from '../environment';
+import {Forecast} from '../Server/Weather';
 
 export function Weather() {
 	const {lat, lon, apiKey, units} = environment;
-	const [forecast, setForecast] = useState<Forecast>();
+	const [forecast, setForecast] = useState<ForecastType>();
 
 	useEffect(() => {
-		if(lat && lon && apiKey) {
-			fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`).then(response => response.json()).then(data => {
-				setForecast(data);
-			})
-		}
-	}, [lat, lon, apiKey])
+		Forecast(lat, lon, apiKey, units).then(forecast => setForecast(forecast));
+	})
 
 	return (
 		<Table>
@@ -31,7 +28,7 @@ export function Weather() {
 						<Header as='h2'>
 							<Image src={`https://openweathermap.org/img/wn/${forecast?.current.weather ? forecast?.current?.weather[0].icon : ''}.png`} />
 							<Header.Content>
-								{forecast?.current.temp}
+								{Math.round(forecast?.current.temp || 0)}
 								<Header.Subheader>{ forecast?.current.weather ? forecast?.current.weather[0].description : ''}</Header.Subheader>
 							</Header.Content>
 						</Header>
@@ -55,7 +52,7 @@ export function Weather() {
 								<Header as='h2'>
 									<Image src={`https://openweathermap.org/img/wn/${day.weather ? day?.weather[0].icon : ''}.png`} />
 									<Header.Content>
-										{day.temp.max}
+										{Math.round(day.temp.max)}
 										<Header.Subheader>{ day.weather ? day.weather[0].description : ''}</Header.Subheader>
 									</Header.Content>
 								</Header>
