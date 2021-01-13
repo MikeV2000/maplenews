@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Header, Image, Table, TableBody, TableCell, TableRow} from 'semantic-ui-react';
-import {ForecastType} from '../Types';
+import {ForecastType} from '../../Types';
 import {environment} from '../environment';
-import {Forecast} from '../Server/Weather';
+import {Forecast} from '../../Server/Weather';
 
 export function Weather() {
 	const {lat, lon, apiKey, units} = environment;
