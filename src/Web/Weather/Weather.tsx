@@ -26,7 +26,7 @@ export function Weather() {
 				<TableRow>
 					<TableCell>
 						<Header as='h2'>
-							<Image src={`https://openweathermap.org/img/wn/${forecast?.current.weather ? forecast?.current?.weather[0].icon : ''}.png`} />
+							<Image src={`Resources/Icons/${forecast?.current.weather ? forecast?.current?.weather[0].icon : ''}.png`} />
 							<Header.Content>
 								{Math.round(forecast?.current.temp || 0)}
 								<Header.Subheader>{ forecast?.current.weather ? forecast?.current.weather[0].description : ''}</Header.Subheader>
