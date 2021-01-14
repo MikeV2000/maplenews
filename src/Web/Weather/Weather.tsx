@@ -10,7 +10,9 @@ export function Weather() {
 
 	useEffect(() => {
 		Forecast(lat, lon, apiKey, units).then(forecast => setForecast(forecast));
-	})
+	}, [apiKey, lat, lon, units])
+
+	if(!forecast?.current?.weather) return <>Error Loading Weather from Weather API</>
 
 	return (
 		<Table>
@@ -26,15 +28,15 @@ export function Weather() {
 				<TableRow>
 					<TableCell>
 						<Header as='h2'>
-							<Image src={`https://openweathermap.org/img/wn/${forecast?.current.weather ? forecast?.current?.weather[0].icon : ''}.png`} />
+							<Image src={`Resources/Icons/${forecast?.current?.weather ? forecast?.current?.weather[0].icon : ''}.png`} />
 							<Header.Content>
-								{Math.round(forecast?.current.temp || 0)}
-								<Header.Subheader>{ forecast?.current.weather ? forecast?.current.weather[0].description : ''}</Header.Subheader>
+								{Math.round(forecast?.current?.temp || 0)}
+								<Header.Subheader>{ forecast?.current?.weather ? forecast?.current.weather[0].description : ''}</Header.Subheader>
 							</Header.Content>
 						</Header>
 					</TableCell>
 					<TableCell>
-						{new Date(forecast?.current.dt ? forecast?.current.dt*1000 : "").toLocaleString('en-us',  {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+						{new Date(forecast?.current?.dt ? forecast?.current.dt*1000 : "").toLocaleString('en-us',  {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
 					</TableCell>
 				</TableRow>
 				<TableRow>
@@ -52,13 +54,13 @@ export function Weather() {
 								<Header as='h2'>
 									<Image src={`https://openweathermap.org/img/wn/${day.weather ? day?.weather[0].icon : ''}.png`} />
 									<Header.Content>
-										{Math.round(day.temp.max)}
+										{Math.round(day?.temp?.max)}
 										<Header.Subheader>{ day.weather ? day.weather[0].description : ''}</Header.Subheader>
 									</Header.Content>
 								</Header>
 							</TableCell>
 							<TableCell>
-								{new Date(day.dt*1000).toLocaleString('en-us',  {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+								{new Date(day?.dt*1000).toLocaleString('en-us',  {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
 							</TableCell>
 						</TableRow>
 					);
