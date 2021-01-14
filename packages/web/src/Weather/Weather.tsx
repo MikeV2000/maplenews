@@ -1,15 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {Header, Image, Table, TableBody, TableCell, TableRow} from 'semantic-ui-react';
-import {ForecastType} from '../../../types';
+import {ForecastType} from '../types';
 import {environment} from '../environment';
-import {Forecast} from '../../../server/Weather';
+import fetch from 'node-fetch';
 
 export function Weather() {
 	const {lat, lon, apiKey, units} = environment;
 	const [forecast, setForecast] = useState<ForecastType>();
 
 	useEffect(() => {
-		Forecast(lat, lon, apiKey, units).then(forecast => setForecast(forecast));
+		const data = {
+			lat,
+			lon,
+			apiKey,
+			units
+		}
+
+		fetch(`http://localhost:3001/forecast`, {method: 'POST', body: JSON.stringify(data)})
+			.then(response => response.json())
+			.then(forecast => setForecast(forecast));
+
 	}, [apiKey, lat, lon, units])
 
 	if(!forecast?.current?.weather) return <>Error Loading Weather from Weather API</>
