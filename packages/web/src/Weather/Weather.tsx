@@ -1,15 +1,38 @@
 import React, {useEffect, useState} from 'react';
 import {Header, Image, Table, TableBody, TableCell, TableRow} from 'semantic-ui-react';
-import {ForecastType} from '../../Types';
+import {ForecastType} from '../types';
 import {environment} from '../environment';
-import {Forecast} from '../../Server/Weather';
 
 export function Weather() {
 	const {lat, lon, apiKey, units} = environment;
 	const [forecast, setForecast] = useState<ForecastType>();
 
 	useEffect(() => {
-		Forecast(lat, lon, apiKey, units).then(forecast => setForecast(forecast));
+		const request = new Request('http://localhost:3001/forecast', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			mode: 'cors',
+			credentials: 'same-origin',
+			cache: 'default',
+			body: JSON.stringify({
+				lat,
+				lon,
+				apiKey,
+				units
+			})
+		});
+
+		fetch(request)
+			.then(response => {
+				if(response.ok) {
+					response.json().then(json => {
+						setForecast(json);
+					});
+				}
+			})
+
 	}, [apiKey, lat, lon, units])
 
 	if(!forecast?.current?.weather) return <>Error Loading Weather from Weather API</>
@@ -49,7 +72,7 @@ export function Weather() {
 				</TableRow>
 				{forecast?.daily?.map(day => {
 					return (
-						<TableRow>
+						<TableRow key={day.dt}>
 							<TableCell>
 								<Header as='h2'>
 									<Image src={`https://openweathermap.org/img/wn/${day.weather ? day?.weather[0].icon : ''}.png`} />
