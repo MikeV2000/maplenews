@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {Header, Image, Table, TableBody, TableCell, TableRow} from 'semantic-ui-react';
 import {ForecastType} from '../types';
 import {environment} from '../core/environment';
-import {Endpoint, api} from '../core/endpoints';
+import {Endpoint, server} from '../core/endpoints';
 
 export function Weather() {
 	const {lat, lon, apiKey, units} = environment;
 	const [forecast, setForecast] = useState<ForecastType>();
 
 	useEffect(() => {
-		api(Endpoint.forecast, {lat, lon, apiKey,	units}).then(response => {
+		server(Endpoint.forecast, {lat, lon, apiKey,	units}).then(response => {
 			if (response.ok) {
 				response.json().then(json => setForecast(json));
 			}

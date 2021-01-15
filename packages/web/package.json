@@ -1,12 +1,27 @@
 {
-  "name": "maplenews",
-  "version": "0.1.0",
+  "name": "maplenews-web",
+  "contributors": [
+    {
+      "name": "Shayne Thiessen",
+      "url": "https://explorewithshayne.com"
+    }
+  ],
+  "license": "MIT",
+  "main": "index.ts",
   "private": true,
+  "version": "1.0.0",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "@types/node": "^12.0.0",
-    "@types/node-fetch": "^2.5.8",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^16.9.8",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",
     "open-weather-icons": "^0.0.8",
@@ -14,31 +29,13 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.1",
+    "semantic-ui-react": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@types/node-fetch": "^2.5.8",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
     "typescript": "^4.0.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

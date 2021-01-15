@@ -1,0 +1,19 @@
+{
+  "name": "maplenews",
+  "contributors": [
+    {
+      "name": "Shayne Thiessen",
+      "url": "https://explorewithshayne.com"
+    }
+  ],
+  "license": "MIT",
+  "main": "index.ts",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

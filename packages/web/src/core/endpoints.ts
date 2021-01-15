@@ -2,7 +2,7 @@ export enum Endpoint {
 	forecast = 'forecast'
 }
 
-export function api(endpoint: Endpoint, data: Object) {
+export function server(endpoint: Endpoint, data: Object) {
 	const request = new Request(`http://localhost:3001/${endpoint}`, {
 		method: 'POST',
 		headers: {
