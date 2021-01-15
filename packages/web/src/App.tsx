@@ -1,7 +1,7 @@
 import React from 'react';
 import {Weather} from './Weather';
 import {Grid, Menu} from 'semantic-ui-react';
-import {environment} from './environment';
+import {environment} from './core/environment';
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Menu inverted attached>
         <Menu.Item>
-          Maple News Network
+          {environment.siteTitle}
         </Menu.Item>
         <Menu.Item position="right">
           {environment.location}

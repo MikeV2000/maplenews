@@ -1,38 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {Header, Image, Table, TableBody, TableCell, TableRow} from 'semantic-ui-react';
 import {ForecastType} from '../types';
-import {environment} from '../environment';
+import {environment} from '../core/environment';
+import {Endpoint, api} from '../core/endpoints';
 
 export function Weather() {
 	const {lat, lon, apiKey, units} = environment;
 	const [forecast, setForecast] = useState<ForecastType>();
 
 	useEffect(() => {
-		const request = new Request('http://localhost:3001/forecast', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			mode: 'cors',
-			credentials: 'same-origin',
-			cache: 'default',
-			body: JSON.stringify({
-				lat,
-				lon,
-				apiKey,
-				units
-			})
-		});
-
-		fetch(request)
-			.then(response => {
-				if(response.ok) {
-					response.json().then(json => {
-						setForecast(json);
-					});
-				}
-			})
-
+		api(Endpoint.forecast, {lat, lon, apiKey,	units}).then(response => {
+			if (response.ok) {
+				response.json().then(json => setForecast(json));
+			}
+		}).catch(error => error);
 	}, [apiKey, lat, lon, units])
 
 	if(!forecast?.current?.weather) return <>Error Loading Weather from Weather API</>
