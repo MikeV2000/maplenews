@@ -25,7 +25,7 @@ export function DailyForecast (props: Props) {
                         <TableRow key={day.dt}>
                             <TableCell>
                                 <Header as='h2'>
-                                    <Image src={`https://openweathermap.org/img/wn/${day.weather ? day?.weather[0].icon : ''}.png`} />
+                                    <Image src={`resources/icons/${day?.weather ? day?.weather[0].icon : ''}.png`} />
                                     <Header.Content>
                                         {Math.round(day?.temp?.max)}
                                         <Header.Subheader>{ day.weather ? day.weather[0].description : ''}</Header.Subheader>

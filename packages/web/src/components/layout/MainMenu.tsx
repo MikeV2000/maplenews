@@ -1,6 +1,6 @@
-import {Menu, MenuItemProps} from "semantic-ui-react";
+import {Menu} from "semantic-ui-react";
 import {environment} from "../../core/environment";
-import React, {useState} from "react";
+import React from "react";
 import {Route} from "../../types";
 import {Link, useLocation} from "react-router-dom";
 

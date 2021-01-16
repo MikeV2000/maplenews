@@ -23,7 +23,7 @@ export function CurrentConditions (props: Props) {
                 <TableRow>
                     <TableCell>
                         <Header as='h2'>
-                            <Image src={`Resources/Icons/${current?.weather ? current?.weather[0].icon : ''}.png`} />
+                            <Image src={`resources/icons/${current?.weather ? current?.weather[0].icon : ''}.png`} />
                             <Header.Content>
                                 {Math.round(current?.temp || 0)}
                                 <Header.Subheader>{ current?.weather ? current.weather[0].description : ''}</Header.Subheader>
