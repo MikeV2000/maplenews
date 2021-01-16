@@ -1,24 +1,25 @@
-import {Menu} from "semantic-ui-react";
+import {Menu, MenuItemProps} from "semantic-ui-react";
 import {environment} from "../../core/environment";
-import React from "react";
+import React, {useState} from "react";
 import {Route} from "../../types";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 interface Props {
     routes: Route[];
 }
 
 export function MainMenu(props: Props) {
+    const location = useLocation().pathname;
     const {routes} = props;
 
     return (
         <Menu inverted attached>
-            <Menu.Item>
+            <Menu.Item color="red" name='/' active={location === '/'}>
                 <Link to='/'>Home</Link>
             </Menu.Item>
             {routes.map(route => {
                 return (
-                    <Menu.Item>
+                    <Menu.Item color={route.color} name={route.path} active={location === route.path}>
                         <Link to={route.path}>{route.title}</Link>
                     </Menu.Item>
                 );

@@ -2,8 +2,9 @@ import React from 'react';
 import {Grid} from 'semantic-ui-react';
 import {MainMenu} from "./components/layout";
 import {Routes} from "./core/routes";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route as BrowserRoute, Switch} from "react-router-dom";
 import {Home} from "./pages";
+import {Route} from "./types";
 
 function App() {
 
@@ -12,20 +13,20 @@ function App() {
         <BrowserRouter>
             <MainMenu routes={Routes}/>
             <Switch>
-                {Routes.map(route => {
+                {Routes.map((route: Route) => {
                     return (
-                        <Route path={route.path}>
+                        <BrowserRoute path={route.path}>
                             <Grid padded stackable stretched>
                                 {route.page()}
                             </Grid>
-                        </Route>
+                        </BrowserRoute>
                     );
                 })}
-                <Route path='/'>
+                <BrowserRoute path='/'>
                     <Grid padded stackable stretched>
                         <Home />
                     </Grid>
-                </Route>
+                </BrowserRoute>
             </Switch>
         </BrowserRouter>
     </div>
