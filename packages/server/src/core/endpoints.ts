@@ -1,4 +1,4 @@
-import {Forecast} from '../Weather';
+import {Forecast} from '../endpoints/weather';
 
 type Endpoint = {
 	path: string;

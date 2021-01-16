@@ -9,7 +9,7 @@ export interface ForecastType {
 	daily?: (DailyEntity)[] | null;
 	alerts?: (AlertsEntity)[] | null;
 }
-interface Current {
+export interface Current {
 	dt: number;
 	sunrise: number;
 	sunset: number;
@@ -50,7 +50,7 @@ interface MinutelyEntity {
 	dt: number;
 	precipitation: number;
 }
-interface DailyEntity {
+export interface DailyEntity {
 	dt: number;
 	sunrise: number;
 	sunset: number;

@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "compilerOptions": {
-      "skipLibCheck": true
-    },
     "module": "commonjs",
     "rootDir": "./",
     "outDir": "./build",
