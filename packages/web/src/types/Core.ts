@@ -1,5 +1,5 @@
 export type Route = {
-    title: String;
-    path: String;
+    title: string;
+    path: string;
     page: () => JSX.Element;
 }

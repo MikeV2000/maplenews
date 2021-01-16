@@ -3,13 +3,8 @@ import {Route} from "../types";
 
 export const Routes: Route[] = [
     {
-        title: 'Home',
-        path: '/',
-        page: Home
-    },
-    {
         title: 'Weather',
-        path: '/Weather',
+        path: '/weather',
         page: Weather
     }
 ]
