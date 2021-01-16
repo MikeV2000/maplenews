@@ -19,7 +19,7 @@ export function MainMenu(props: Props) {
             </Menu.Item>
             {routes.map(route => {
                 return (
-                    <Menu.Item color={route.color} name={route.path} active={location === route.path}>
+                    <Menu.Item key={route.path} color={route.color} name={route.path} active={location === route.path}>
                         <Link to={route.path}>{route.title}</Link>
                     </Menu.Item>
                 );

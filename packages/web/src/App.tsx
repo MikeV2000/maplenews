@@ -15,7 +15,7 @@ function App() {
             <Switch>
                 {Routes.map((route: Route) => {
                     return (
-                        <BrowserRoute path={route.path}>
+                        <BrowserRoute path={route.path} key={route.path}>
                             <Grid padded stackable stretched>
                                 {route.page()}
                             </Grid>
