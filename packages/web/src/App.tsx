@@ -1,5 +1,5 @@
 import React from 'react';
-import {Weather} from './Weather';
+import {Home} from './pages';
 import {Grid, Menu} from 'semantic-ui-react';
 import {environment} from './core/environment';
 
@@ -16,7 +16,7 @@ function App() {
         </Menu.Item>
       </Menu>
       <Grid padded stackable stretched>
-        <Weather />
+        <Home />
       </Grid>
     </div>
   );
