@@ -1,16 +1,20 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "main": "index.ts",
+  "name": "maplenews-server",
+  "contributors": [
+    {
+      "name": "Shayne Thiessen",
+      "url": "https://explorewithshayne.com"
+    }
+  ],
   "license": "MIT",
+  "main": "index.ts",
+  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "start": "nodemon ./src/index.ts",
     "build": "tsc --project ./"
   },
   "dependencies": {
-    "@types/body-parser": "^1.19.0",
-    "@types/cors": "^2.8.9",
-    "@types/node-fetch": "^2.5.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -19,6 +23,9 @@
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.20",
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.9",
+    "@types/node-fetch": "^2.5.8",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
