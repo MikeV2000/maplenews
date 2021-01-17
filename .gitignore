@@ -29,3 +29,6 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 packages/*/debug.log
+
+packages/*/dist
+dist/
