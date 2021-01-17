@@ -1,0 +1,30 @@
+name: Test Workflow
+on:
+  push:
+    branches-ignore:
+      - master
+      - develop
+      -
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node 14.14
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: "14.14"
+
+      - name: Web - Install dependencies
+        working-directory: ./packages/web/
+        run: |
+          yarn
+
+      - name: Server - Install dependencies
+        working-directory: ./packages/server/
+        run: |
+          yarn
