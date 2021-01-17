@@ -1,7 +1,7 @@
-import {environment} from "~core/environment";
+import {environment} from "../core/environment";
 import React, {useEffect, useState} from "react";
 import type {ForecastType} from '../types';
-import {Endpoint, server} from "~core/endpoints";
+import {server} from "../core/endpoints";
 import {CurrentConditions} from "../components/weather";
 
 export function Home() {
@@ -9,7 +9,7 @@ export function Home() {
     const [forecast, setForecast] = useState<ForecastType>();
 
     useEffect(() => {
-        server(Endpoint.forecast, {lat, lon, apiKey,	units}).then(response => {
+        server('forecast', {lat, lon, apiKey,	units}).then(response => {
             if (response.ok) {
                 response.json().then(json => setForecast(json));
             }

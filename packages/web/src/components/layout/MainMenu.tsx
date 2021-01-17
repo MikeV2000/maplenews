@@ -1,5 +1,5 @@
 import {Menu} from "semantic-ui-react";
-import {environment} from "~core/environment";
+import {environment} from "../../core/environment";
 import React from "react";
 import type {Route} from "../../types";
 import {Link, useLocation} from "react-router-dom";

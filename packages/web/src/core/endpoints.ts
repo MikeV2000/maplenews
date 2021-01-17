@@ -1,6 +1,4 @@
-export enum Endpoint {
-	forecast = 'forecast'
-}
+type Endpoint = 'forecast';
 
 export function server(endpoint: Endpoint, data: Object) {
 	const request = new Request(`http://localhost:3001/${endpoint}`, {
