@@ -1,5 +1,5 @@
 import {Weather} from "../pages";
-import {Route} from "../types";
+import type {Route} from "../types";
 
 export const Routes: Route[] = [
     {

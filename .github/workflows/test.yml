@@ -1,0 +1,52 @@
+name: Test Workflow
+on:
+  push:
+    branches-ignore:
+      - master
+      - develop
+      -
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node 14.14
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: "14.14"
+
+      - name: Web - Install dependencies
+        working-directory: ./packages/web/
+        run: |
+          yarn
+
+      - name: Server - Install dependencies
+        working-directory: ./packages/server/
+        run: |
+          yarn
+
+      - name: Web - Sort package.json
+        working-directory: ./packages/web/
+        run: |
+          yarn sort
+          bash ../../tools/check_git_status.sh
+
+      - name: Server - Sort package.json
+        working-directory: ./packages/server/
+        run: |
+          yarn sort
+          bash ../../tools/check_git_status.sh
+
+      - name: Web - Typescript
+        working-directory: ./packages/web/
+        run: |
+          yarn ts
+
+      - name: Server - Typescript
+        working-directory: ./packages/server/
+        run: |
+          yarn ts
