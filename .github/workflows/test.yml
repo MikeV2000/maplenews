@@ -28,3 +28,13 @@ jobs:
         working-directory: ./packages/server/
         run: |
           yarn
+
+      - name: Web - Sort package.json
+        working-directory: ./packages/web/
+        run: |
+          yarn sort
+
+      - name: Server - Sort package.json
+        working-directory: ./packages/server/
+        run: |
+          yarn sort
