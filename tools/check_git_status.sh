@@ -8,7 +8,7 @@ NC='\033[0m'
 printf "${LCYAN}Checking git status...${NC}"
 if output=$(git status --porcelain) && [ -n "$output" ]; then
   printf " ${LRED}error${NC}\n"
-  printf "\n${LRED}[ERROR] Outstanding git changes need to be committed first${NC}\n"
+  printf "\n${LRED}[ERROR] You should run yarn and yarn sort before committing.${NC}\n"
   exit 1
 else
   printf " ${LGREEN}OK${NC}\n"

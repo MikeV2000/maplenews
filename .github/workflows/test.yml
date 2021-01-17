@@ -33,10 +33,10 @@ jobs:
         working-directory: ./packages/web/
         run: |
           yarn sort
-          bash ./tools/check_git_status.sh
+          bash ../../tools/check_git_status.sh
 
       - name: Server - Sort package.json
         working-directory: ./packages/server/
         run: |
           yarn sort
-          bash ./tools/check_git_status.sh
+          bash ../../tools/check_git_status.sh
