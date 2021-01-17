@@ -3,9 +3,9 @@
 ## Packages
 
 ### Web
-Project front end, built using React, Typescript and Semantic UI
+Project front end, built using React, Typescript and Semantic UI.
 ### Server
-Project back end, built using Express and Typescript
+Project back end, built using Express and Typescript.
 
 ## Available Scripts
 
