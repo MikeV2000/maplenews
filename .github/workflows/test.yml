@@ -40,3 +40,13 @@ jobs:
         run: |
           yarn sort
           bash ../../tools/check_git_status.sh
+
+      - name: Web - Typescript
+        working-directory: ./packages/web/
+        run: |
+          yarn ts
+
+      - name: Server - Typescript
+        working-directory: ./packages/server/
+        run: |
+          yarn ts

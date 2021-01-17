@@ -1,4 +1,4 @@
-import {ForecastType} from '../../types';
+import type {ForecastType} from '../../types';
 import fetch from 'node-fetch';
 
 export async function Forecast(data: any): Promise<ForecastType> {

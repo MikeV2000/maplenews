@@ -1,10 +1,10 @@
 import React from 'react';
 import {Grid} from 'semantic-ui-react';
 import {MainMenu} from "./components/layout";
-import {Routes} from "./core/routes";
+import {Routes} from "~core/routes";
 import {BrowserRouter, Route as BrowserRoute, Switch} from "react-router-dom";
 import {Home} from "./pages";
-import {Route} from "./types";
+import type {Route} from "./types";
 
 function App() {
 

@@ -1,7 +1,7 @@
-import {environment} from "../core/environment";
+import {environment} from "~core/environment";
 import React, {useEffect, useState} from "react";
-import {ForecastType} from "../types";
-import {Endpoint, server} from "../core/endpoints";
+import type {ForecastType} from '../types';
+import {Endpoint, server} from "~core/endpoints";
 import {CurrentConditions} from "../components/weather";
 
 export function Home() {

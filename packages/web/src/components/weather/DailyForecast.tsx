@@ -1,6 +1,6 @@
 import {Header, Image, Table, TableBody, TableCell, TableRow} from "semantic-ui-react";
 import React from "react";
-import {DailyEntity} from "../../types/Weather";
+import type {DailyEntity} from "../../types/Weather";
 
 interface Props {
     daily: DailyEntity[];

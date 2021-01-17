@@ -13,7 +13,8 @@
   "scripts": {
     "build": "node scripts/build.js",
     "sort": "npx sort-package-json",
-    "start": "node scripts/start.js"
+    "start": "node scripts/start.js",
+    "ts": "yarn tsc"
   },
   "babel": {
     "presets": [
@@ -90,6 +91,7 @@
   },
   "dependencies": {
     "@babel/core": "7.12.3",
+    "@babel/plugin-syntax-jsx": "^7.12.1",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
     "@svgr/webpack": "5.4.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
