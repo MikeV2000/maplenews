@@ -2,7 +2,7 @@ import {environment} from "../core/environment";
 import React, {useEffect, useState} from "react";
 import type {ForecastType} from '../types';
 import {server} from "../core/endpoints";
-import {CurrentConditions} from "../components/weather";
+import {CurrentConditions} from '../components';
 
 export function Home() {
     const {lat, lon, apiKey, units} = environment;
