@@ -4,10 +4,10 @@ export interface ForecastType {
 	timezone: string;
 	timezone_offset: number;
 	current: Current;
-	hourly?: (HourlyEntity)[] | null;
-	minutely?: (MinutelyEntity)[] | null;
-	daily?: (DailyEntity)[] | null;
-	alerts?: (AlertsEntity)[] | null;
+	hourly?: HourlyEntity[] | null;
+	minutely?: MinutelyEntity[] | null;
+	daily?: DailyEntity[] | null;
+	alerts?: AlertsEntity[] | null;
 }
 export interface Current {
 	dt: number;
@@ -23,7 +23,7 @@ export interface Current {
 	visibility: number;
 	wind_speed: number;
 	wind_deg: number;
-	weather?: (WeatherEntity)[] | null;
+	weather?: WeatherEntity[] | null;
 }
 interface WeatherEntity {
 	id: number;
@@ -43,7 +43,7 @@ interface HourlyEntity {
 	visibility: number;
 	wind_speed: number;
 	wind_deg: number;
-	weather?: (WeatherEntity)[] | null;
+	weather?: WeatherEntity[] | null;
 	pop: number;
 }
 interface MinutelyEntity {
@@ -61,7 +61,7 @@ export interface DailyEntity {
 	dew_point: number;
 	wind_speed: number;
 	wind_deg: number;
-	weather?: (WeatherEntity)[] | null;
+	weather?: WeatherEntity[] | null;
 	clouds: number;
 	pop: number;
 	uvi: number;

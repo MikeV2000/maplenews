@@ -5,4 +5,4 @@ export const environment = {
 	apiKey: process.env.REACT_APP_API_KEY || '',
 	units: process.env.REACT_APP_UNITS || 'metric',
 	siteTitle: process.env.REACT_APP_SITE_TITLE || 'Maple News Network',
-}
+};

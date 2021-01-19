@@ -1,5 +1,5 @@
-import type {ForecastType} from '../../types';
 import fetch from 'node-fetch';
+import type {ForecastType} from '../../types';
 
 export async function Forecast(data: any): Promise<ForecastType> {
 	const {lat, lon, apiKey, units} = data;

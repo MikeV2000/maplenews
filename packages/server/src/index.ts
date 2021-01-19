@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 endpoints.map(endpoint => {
-	app.post(`/${endpoint.path}`,(req, res) => {
+	app.post(`/${endpoint.path}`, (req, res) => {
 		endpoint.function(req.body.data).then(data => res.send(data));
 	});
 });
