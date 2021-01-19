@@ -50,3 +50,13 @@ jobs:
         working-directory: ./packages/server/
         run: |
           yarn ts
+
+       - name: Web - Lint
+         working-directory: ./packages/web/
+         run: |
+           yarn lint
+
+       - name: Server - Lint
+         working-directory: ./packages/server/
+         run: |
+           yarn lint
