@@ -1,8 +1,8 @@
-import type {SemanticCOLORS} from "semantic-ui-react";
+import type {SemanticCOLORS} from 'semantic-ui-react';
 
 export type Route = {
-    title: string;
-    path: string;
-    page: () => JSX.Element;
-    color: SemanticCOLORS;
-}
+	title: string;
+	path: string;
+	page: () => JSX.Element;
+	color: SemanticCOLORS;
+};
