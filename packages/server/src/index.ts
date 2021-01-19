@@ -17,6 +17,7 @@ endpoints.forEach(endpoint => {
 app.get('/', (req, res) => res.send('Express + TypeScript Server'));
 
 app.listen(PORT, () => {
+	// TODO issue #54
 	// eslint-disable-next-line
 	console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
