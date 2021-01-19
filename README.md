@@ -14,6 +14,9 @@ In each package directory, you can run:
 ### `yarn build`
 Builds the package for production to the `build` folder.
 
+### `yarn depcheck`
+Checks the package.json for unused dependencies. Don't rely too heavily on this, it's more like a guideline.
+
 ### `yarn sort`
 Sorts the package.json.
 
