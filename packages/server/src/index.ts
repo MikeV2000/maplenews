@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import {endpoints} from './core/endpoints';
+import {environment} from './core/environment';
 
 const app = express();
-const PORT = 3001;
 
 app.use(express.json());
 app.use(cors());
@@ -16,8 +16,8 @@ endpoints.forEach(endpoint => {
 
 app.get('/', (req, res) => res.send('Express + TypeScript Server'));
 
-app.listen(PORT, () => {
+app.listen(environment.serverPORT, () => {
 	// TODO issue #54
 	// eslint-disable-next-line
-	console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+	console.log(`${environment.siteTitle}: Server is running at ${environment.serverUrl}`);
 });
