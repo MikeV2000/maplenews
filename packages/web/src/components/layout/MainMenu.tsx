@@ -14,9 +14,6 @@ export function MainMenu(props: Props) {
 
 	return (
 		<Menu inverted attached>
-			<Menu.Item color="red" name="/" active={location === '/'}>
-				<Link to="/">Home</Link>
-			</Menu.Item>
 			{routes.map(route => {
 				return (
 					<Menu.Item key={route.path} color={route.color} name={route.path} active={location === route.path}>
