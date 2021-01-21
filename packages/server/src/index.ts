@@ -1,9 +1,10 @@
+// eslint-disable-next-line
+import {environment} from './core/environment'; // This import needs to be before the debug import -STT
 import express from 'express';
 import cors from 'cors';
 import {connect} from 'mongodb';
-import {endpoints} from './core/endpoints';
-import {environment} from './core/environment';
 import {debug} from 'debug';
+import {endpoints} from './core/endpoints';
 
 const d = debug('server.index');
 

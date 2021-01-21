@@ -1,11 +1,11 @@
 import React from 'react';
 import {Grid, GridColumn, GridRow} from 'semantic-ui-react';
 import {BrowserRouter, Route as BrowserRoute, Switch} from 'react-router-dom';
+import {debug} from 'debug';
 import {MainMenu} from './components';
 import {Routes} from './core/routes';
 import {Error} from './pages';
 import type {Route} from './types';
-import {debug} from 'debug';
 
 const d = debug('web.app');
 
