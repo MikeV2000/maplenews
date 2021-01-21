@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import {connect} from 'mongodb';
-import debug from 'debug';
 import {endpoints} from './core/endpoints';
 import {environment} from './core/environment';
+import {debug} from 'debug';
 
 const d = debug('server.index');
 
