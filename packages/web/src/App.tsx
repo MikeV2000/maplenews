@@ -1,9 +1,9 @@
 import React from 'react';
-import {Grid} from 'semantic-ui-react';
+import {Grid, GridColumn, GridRow} from 'semantic-ui-react';
 import {BrowserRouter, Route as BrowserRoute, Switch} from 'react-router-dom';
-import {MainMenu} from './components/layout';
+import {MainMenu} from './components';
 import {Routes} from './core/routes';
-import {Home} from './pages';
+import {Error} from './pages';
 import type {Route} from './types';
 
 function App() {
@@ -14,16 +14,22 @@ function App() {
 				<Switch>
 					{Routes.map((route: Route) => {
 						return (
-							<BrowserRoute path={route.path} key={route.path}>
+							<BrowserRoute exact path={route.path} key={route.path}>
 								<Grid padded stackable stretched>
-									{route.page()}
+									<GridRow>
+										<GridColumn>{route.page()}</GridColumn>
+									</GridRow>
 								</Grid>
 							</BrowserRoute>
 						);
 					})}
-					<BrowserRoute path="/">
+					<BrowserRoute>
 						<Grid padded stackable stretched>
-							<Home />
+							<GridRow>
+								<GridColumn>
+									<Error code="404" message="The page could not be found." />
+								</GridColumn>
+							</GridRow>
 						</Grid>
 					</BrowserRoute>
 				</Switch>

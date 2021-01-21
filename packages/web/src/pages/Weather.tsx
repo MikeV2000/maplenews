@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {CurrentConditions, DailyForecast} from '../components';
+import {CurrentConditions, DailyForecast, Loading} from '../components';
 import {environment} from '../core/environment';
 import type {ForecastType} from '../types';
 import {server} from '../core/endpoints';
@@ -18,7 +18,7 @@ export function Weather() {
 			.catch(error => error);
 	}, [apiKey, lat, lon, units]);
 
-	if (!forecast?.current || !forecast?.daily) return <>Error Loading Weather from Weather API</>;
+	if (!forecast?.current || !forecast?.daily) return <Loading />;
 
 	return (
 		<>
