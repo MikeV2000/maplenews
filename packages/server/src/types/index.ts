@@ -1,2 +1,2 @@
 export type {ForecastType} from './Weather';
-export type {UserLocation} from './Location';
+export type {UserLocationType} from './Location';
