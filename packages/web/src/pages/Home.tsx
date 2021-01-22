@@ -5,18 +5,18 @@ import {server} from '../core/endpoints';
 import {CurrentConditions, Loading} from '../components';
 
 export function Home() {
-	const {lat, lon, apiKey, units} = environment;
+	const {units} = environment;
 	const [forecast, setForecast] = useState<ForecastType>();
 
 	useEffect(() => {
-		server('forecast', {lat, lon, apiKey, units})
+		server('forecast', {units})
 			.then(response => {
 				if (response.ok) {
 					response.json().then(json => setForecast(json));
 				}
 			})
 			.catch(error => error);
-	}, [apiKey, lat, lon, units]);
+	}, [units]);
 
 	if (!forecast?.current) return <Loading />;
 

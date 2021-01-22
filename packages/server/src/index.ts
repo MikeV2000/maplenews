@@ -19,7 +19,7 @@ connect(environment.databaseURL, {useUnifiedTopology: true})
 
 		endpoints.forEach(endpoint => {
 			app.post(`/${endpoint.path}`, (req, res) => {
-				endpoint.function(req.body.data, db).then(data => res.send(data));
+				endpoint.function(req, req.body.data, db).then(data => res.send(data));
 			});
 		});
 

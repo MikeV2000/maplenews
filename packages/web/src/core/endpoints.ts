@@ -1,4 +1,4 @@
-type Endpoint = 'forecast';
+type Endpoint = 'forecast' | 'user-location';
 
 export function server(endpoint: Endpoint, data: Record<string, unknown>) {
 	const request = new Request(`http://localhost:3001/${endpoint}`, {
